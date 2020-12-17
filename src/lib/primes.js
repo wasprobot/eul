@@ -1,7 +1,7 @@
 var obj = {
   isCoprimeToAll: (n, list) => {
-    for (let index = 0; index < list.length; index++) {
-      if (n % list[index] == 0) return false;
+    for (let i = 0; i < list.length; i++) {
+      if (n % list[i] == 0) return false;
     }
     return true;
   },
@@ -29,21 +29,19 @@ var obj = {
     n += n % 2 == 0 ? 1 : 2;
     while (!obj.isPrime(n, smallerPrimes)) {
       n += 2;
-      console.log({ n });
-      console.log({ smallerPrimes });
     }
 
     return n;
   },
 
-  nthPrime: (n) => {
+  nthPrime: n => {
     let prime = 0;
     while (n--) prime = obj.nextPrime(prime);
 
     return prime;
   },
 
-  primeFactors: (n) => {
+  primeFactors: n => {
     let factors = [];
     let i = 2;
     do {
@@ -57,7 +55,7 @@ var obj = {
     if (obj.isPrime(n)) factors.push(n);
 
     return factors;
-  },
+  }
 };
 
 module.exports = obj;
