@@ -1,7 +1,5 @@
 module.exports = {
-  run: (problem) => {
-    require(`./src/problems/${problem}`).run();
-  },
+  run: problem => require(`./src/problems/${problem}`).run()
 };
 
 require("make-runnable");

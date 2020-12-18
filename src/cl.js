@@ -1,11 +1,21 @@
-var clui = require('clui');
- 
-var Progress = clui.Progress;
- 
-var thisProgressBar = new Progress(20);
-console.log(thisProgressBar.update(10, 30));
- 
-// or
- 
-var thisPercentBar = new Progress(20);
-console.log(thisPercentBar.update(0.4));
+var CLI = require("clui"),
+  Spinner = CLI.Spinner;
+
+var countdown = new Spinner("Exiting in 10 seconds...  ", [
+  "-",
+  "\\",
+  "|",
+  "/"
+]);
+
+countdown.start();
+
+var number = 10;
+setInterval(function() {
+  number++;
+  countdown.message("Exiting in " + number + " seconds...  ");
+  // if (number === 0) {
+  //   process.stdout.write("\n");
+  //   process.exit(0);
+  // }
+}, 100);
