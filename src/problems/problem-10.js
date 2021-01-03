@@ -1,6 +1,5 @@
-module.exports.run = function () {
+module.exports.run = function (final) {
   let sum = 0;
-  let final = 2000000;
   let candidates = [];
   let index = 0;
   while (index <= final) candidates.push(index++);
@@ -9,12 +8,7 @@ module.exports.run = function () {
   do {
     if (candidates[c] != -1) {
       sum += c;
-
-      let index = 2 * c;
-      while (index <= final) {
-        candidates[index] = -1;
-        index += c;
-      }
+      for (let i = 2 * c; i <= final; i += c) candidates[i] = -1;
     }
     c++;
   } while (c <= final);
