@@ -34,14 +34,14 @@ var obj = {
     return n;
   },
 
-  nthPrime: n => {
+  nthPrime: (n) => {
     let prime = 0;
     while (n--) prime = obj.nextPrime(prime);
 
     return prime;
   },
 
-  primeFactors: n => {
+  primeFactors: (n) => {
     let factors = [];
     let i = 2;
     do {
@@ -55,7 +55,7 @@ var obj = {
     if (obj.isPrime(n)) factors.push(n);
 
     return factors;
-  }
+  },
 };
 
 module.exports = obj;

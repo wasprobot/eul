@@ -1,17 +1,26 @@
-const Primes = require("../lib/primes");
+module.exports.run = function () {
+  let sum = 0;
+  let final = 2000000;
+  let candidates = [];
+  let index = 0;
+  while (index <= final) {
+    candidates.push({ n: index++, prime: null });
+  }
 
-module.exports.run = function() {
-  let sum = 2;
-  let candidate = 3;
-  let lowerPrimes = [2];
-
+  let c = 2;
   do {
-    if (Primes.isCoprimeToAll(candidate, lowerPrimes)) {
-      lowerPrimes.push(candidate);
-      sum += candidate;
-    }
-    candidate += 2;
-  } while (candidate < 2000000);
+    if (candidates[c].prime == null) {
+      candidates[c].prime = true;
+      sum += c;
 
-  console.log("The sum of all the primes below two million:", sum);
+      let index = 2 * c;
+      while (index <= final) {
+        candidates[index].prime = false;
+        index += c;
+      }
+    }
+    c++;
+  } while (c <= final);
+
+  return `The sum of all the primes below ${final} is ${sum}`;
 };
