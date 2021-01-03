@@ -3,19 +3,16 @@ module.exports.run = function () {
   let final = 2000000;
   let candidates = [];
   let index = 0;
-  while (index <= final) {
-    candidates.push({ n: index++, prime: null });
-  }
+  while (index <= final) candidates.push(index++);
 
   let c = 2;
   do {
-    if (candidates[c].prime == null) {
-      candidates[c].prime = true;
+    if (candidates[c] != -1) {
       sum += c;
 
       let index = 2 * c;
       while (index <= final) {
-        candidates[index].prime = false;
+        candidates[index] = -1;
         index += c;
       }
     }
