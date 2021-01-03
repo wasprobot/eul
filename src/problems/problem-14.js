@@ -19,17 +19,10 @@ module.exports.run = function (limit) {
       countdown.message(`${candidate} produces a chain of length: ${length}`);
     }
 
-
-    if (candidate >= limit) {
-      countdown.message(
-        `${candidate} is the starting number, under ${limit}, that produces the longest chain (length ${maxLength})`
-      );
-      countdown.message(length);
-      process.exit(0);
-    }
+    if (candidate >= limit) process.exit(0);
 
     candidate++;
-  }, 10);
+  }, 0.00001);
 
   // for (let i = 1; i <= limit; i++) {
   //   length = Chains.collatz(i).length;
