@@ -1,17 +1,13 @@
-module.exports.run = function (final) {
+module.exports.run = function (limit) {
   let sum = 0;
-  let candidates = [];
-  let index = 0;
-  while (index <= final) candidates.push(index++);
+  let candidates = Array(limit);
 
-  let c = 2;
-  do {
+  for (let c = 2; c <= limit; c++) {
     if (candidates[c] != -1) {
       sum += c;
-      for (let i = 2 * c; i <= final; i += c) candidates[i] = -1;
+      for (let i = 2 * c; i <= limit; i += c) candidates[i] = -1;
     }
-    c++;
-  } while (c <= final);
+  }
 
-  return `The sum of all the primes below ${final.toLocaleString()} is ${sum.toLocaleString()}`;
+  return `The sum of all the primes upto ${limit.toLocaleString()} is ${sum.toLocaleString()}`;
 };
