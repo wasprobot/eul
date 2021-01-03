@@ -8,7 +8,7 @@ module.exports.run = function() {
   countdown.start();
 
   let n = 1;
-  let maxSum = 100;
+  let maxSum = 500;
   let triangle;
 
   setInterval(() => {

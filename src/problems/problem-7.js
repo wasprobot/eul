@@ -1,5 +1,5 @@
 const Primes = require("../lib/primes");
 
-module.exports.run = function () {
-  console.log("The 10001th prime is:", Primes.nthPrime(10001));
+module.exports.run = function (n) {
+  return `The ${n}th prime is:${Primes.nthPrime(n)}`;
 };
