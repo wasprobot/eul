@@ -13,5 +13,5 @@ module.exports.run = function (final) {
     c++;
   } while (c <= final);
 
-  return `The sum of all the primes below ${final} is ${sum}`;
+  return `The sum of all the primes below ${final.toLocaleString()} is ${sum.toLocaleString()}`;
 };
