@@ -3,11 +3,14 @@ module.exports.run = function (limit) {
   let candidates = Array(limit);
 
   for (let c = 2; c <= limit; c++) {
-    if (candidates[c] != -1) {
+    if (candidates[c] != "np") {
+      candidates[c] = c;
       sum += c;
-      for (let i = 2 * c; i <= limit; i += c) candidates[i] = -1;
+      for (let i = 2 * c; i <= limit; i += c) candidates[i] = "np";
     }
   }
-
+  // candidates.forEach((c) => {
+  //   if (c != "np") console.log(`${c},`);
+  // });
   return `The sum of all the primes upto ${limit.toLocaleString()} is ${sum.toLocaleString()}`;
 };
