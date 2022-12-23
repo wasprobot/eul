@@ -60,22 +60,22 @@ describe("primes", () => {
     });
   });
 
-  describe("nextPrime", () => {
-    it("nextPrime of 2 is 3", () => {
-      let tf = [];
-      expect(subject.nextPrime(2, tf)).toEqual(3);
-      expect(tf).toEqual([2]);
-    });
-    it("nextPrime of 20 is 23", () => {
-      let tf = [];
-      expect(subject.nextPrime(20, tf)).toEqual(23);
-      expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
-    });
-    it("nextPrime of 201 is 211", () => {
-      let tf = [];
-      expect(subject.nextPrime(201, tf)).toEqual(211);
-    });
-  });
+  // describe("nextPrime", () => {
+  //   it("nextPrime of 2 is 3", () => {
+  //     let tf = [];
+  //     expect(subject.nextPrime(2, tf)).toEqual(3);
+  //     expect(tf).toEqual([2]);
+  //   });
+  //   it("nextPrime of 20 is 23", () => {
+  //     let tf = [];
+  //     expect(subject.nextPrime(20, tf)).toEqual(23);
+  //     expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
+  //   });
+  //   it("nextPrime of 201 is 211", () => {
+  //     let tf = [];
+  //     expect(subject.nextPrime(201, tf)).toEqual(211);
+  //   });
+  // });
 
   //   it("primeFactors", () => {
   //     expect(subject.primeFactors(2)).toEqual([2]);
