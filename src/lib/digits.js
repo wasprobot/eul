@@ -41,8 +41,10 @@ obj = {
       n = Math.floor(n / 10);
     }
     return ni;
+  },
+  words: (n) => {
+    
   }
-
 };
 
 module.exports = obj;
