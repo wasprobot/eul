@@ -95,6 +95,16 @@ var obj = {
 
     return result;
   },
+  power: (ns1, ns2) => {
+    var result = ns1;
+    if (ns2 == 0) return "1";
+
+    while (--ns2 > 0) {
+      result = obj.multiply(result, ns1);
+    }
+
+    return result;
+  },
 
   compare: (ns1, ns2) => {
     ns1 = obj.strip(ns1);

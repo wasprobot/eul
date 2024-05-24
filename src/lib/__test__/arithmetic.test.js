@@ -35,6 +35,12 @@ describe("Arithmetic", () => {
     expect(subject.multiply("773636637736", "188277237").length).toEqual(21);
     expect(subject.multiply("49874598754975439574773636637736", "49874598754975439574773636637736").length).toEqual(64);
   });
+  it("power", () => {
+    expect(subject.power("0", "0")).toEqual("1");
+    expect(subject.power("2", "0")).toEqual("1");
+    expect(subject.power("2", "3")).toEqual("8");
+    expect(subject.power("3", "4")).toEqual("81");
+  });
   it("strip", () => {
     expect(subject.strip("00")).toEqual("0");
     expect(subject.strip("23")).toEqual("23");
