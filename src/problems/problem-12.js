@@ -1,6 +1,6 @@
 var CLI = require("clui"),
   Spinner = CLI.Spinner;
-const Triangles = require("../lib/triangles");
+const G = require("../lib/geometric");
 const Factors = require("../lib/factors");
 
 module.exports.run = function() {
@@ -9,10 +9,9 @@ module.exports.run = function() {
 
   let n = 1;
   let maxSum = 500;
-  let triangle;
 
   setInterval(() => {
-    let triangle = Triangles.nth(n++);
+    let triangle = G.triangle(n++);
     countdown.message(triangle);
     let factors = Factors.allFactors(triangle);
     let length = factors.length;
@@ -22,12 +21,4 @@ module.exports.run = function() {
       process.exit(0);
     }
   }, 10);
-
-  // do {
-  //   triangle = Triangles.nth(n++);
-  //   factors = Factors.allFactors(triangle);
-  //   length = factors.length;
-  // } while (length <= maxSum);
-
-  // console.log(`The triangle number with >${maxSum} factors:${triangle}`);
 };
