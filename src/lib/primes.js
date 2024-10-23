@@ -14,6 +14,10 @@ var obj = {
       if (!smallerPrimes.length) { smallerPrimes.push(2); }
       return true;
     }
+    if (n == 4) {
+      if (!smallerPrimes.length) { smallerPrimes.push(2); }
+      return false;
+    }
 
     //are the smaller primes given?
     let candidate;
@@ -90,6 +94,7 @@ var obj = {
     let factors = [];
     let i = 2;
     do {
+      //if i divides n and is prime
       if (n % i == 0 && obj.isPrime(i)) {
         factors.push(i);
         n = n / i;

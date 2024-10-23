@@ -5,6 +5,7 @@ const P = require("../lib/primes");
 
 module.exports.run = function (args) {
     f = parseInt(args);
+    return P.uniquePrimeFactors(f);
 
     let found = 0;
     let n = 4;
@@ -17,7 +18,8 @@ module.exports.run = function (args) {
             found = 0;
         }
         n++;
-        console.log({n});
+        // console.log({n});
     }
-    console.log(n-f);
+    return n-f;
+    
 }

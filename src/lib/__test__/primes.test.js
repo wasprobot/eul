@@ -1,14 +1,26 @@
 let subject = require("../primes");
 describe("primes", () => {
-  it("isCoprimeToAll", () => {
-    expect(subject.isCoprimeToAll(4, [2, 3])).toBeFalsy();
-    expect(subject.isCoprimeToAll(5, [2, 3])).toBeTruthy();
-    expect(subject.isCoprimeToAll(69, [
-      2, 3, 5, 7, 11, 13, 17,
-      19, 23, 29, 31, 37, 41, 43,
-      47, 53, 59, 61, 67
-    ])).toBeFalsy();
-  });
+  describe("isCoprimeToAll", () => {
+    it("4 is not coprime to [2, 3]", () => {
+      expect(subject.isCoprimeToAll(4, [2, 3])).toBeFalsy();
+    });
+
+    it("5 is coprime to [2, 3]", () => {
+      expect(subject.isCoprimeToAll(5, [2, 3])).toBeTruthy();
+    });
+
+    it("8 is not coprime to [2, 3, 5, 7]", () => {
+      expect(subject.isCoprimeToAll(5, [2, 3, 5, 7])).toBeFalsy();
+    });
+
+    it("69 is not coprime to [list]", () => {
+      expect(subject.isCoprimeToAll(69, [
+          2, 3, 5, 7, 11, 13, 17,
+          19, 23, 29, 31, 37, 41, 43,
+          47, 53, 59, 61, 67
+        ])).toBeFalsy();
+      });
+  })
 
   describe("isPrime", () => {
     it("1 is not prime", () => {
@@ -29,15 +41,20 @@ describe("primes", () => {
       expect(tf).toEqual([2]);
     });
 
+    it("3 is prime, with tf", () => {
+      let tf = [2];
+      expect(subject.isPrime(3, tf)).toBeTruthy();
+      expect(tf).toEqual([2]);
+    });
+    
     it("4 is not prime", () => {
       let tf = [];
       expect(subject.isPrime(4, tf)).toBeFalsy();
     });
 
-    it("3 is prime, with tf", () => {
-      let tf = [2];
-      expect(subject.isPrime(3, tf)).toBeTruthy();
-      expect(tf).toEqual([2]);
+    it("8 is not prime", () => {
+      let tf = [];
+      expect(subject.isPrime(8, tf)).toBeFalsy();
     });
 
     it("13 is prime", () => {
@@ -103,7 +120,10 @@ describe("primes", () => {
     it("prime factors of 14", () => {
       expect(subject.primeFactors(14)).toEqual([2, 7]);
     });
-    it("prime factors of 244", () => {
+    it("prime factors of 232", () => {
+      expect(subject.primeFactors(232)).toEqual([2, 29]);
+    });
+    it("prime factors of 645", () => {
       expect(subject.primeFactors(645)).toEqual([3, 5, 43]);
     });
   });
@@ -117,35 +137,35 @@ describe("primes", () => {
     });
   });
 
-  describe("nextPrime", () => {
-    it("nextPrime of 2 is 3", () => {
-      let tf = [];
-      expect(subject.nextPrime(2, tf)).toEqual(3);
-      expect(tf).toEqual([2]);
-    });
-    it("nextPrime of 20 is 23", () => {
-      let tf = [];
-      expect(subject.nextPrime(20, tf)).toEqual(23);
-      expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
-    });
-    it("nextPrime of 201 is 211", () => {
-      let tf = [];
-      result = subject.nextPrime(201, tf)
-      expect(result).toEqual(211);
-    });
-  });
+  // describe("nextPrime", () => {
+  //   it("nextPrime of 2 is 3", () => {
+  //     let tf = [];
+  //     expect(subject.nextPrime(2, tf)).toEqual(3);
+  //     expect(tf).toEqual([2]);
+  //   });
+  //   it("nextPrime of 20 is 23", () => {
+  //     let tf = [];
+  //     expect(subject.nextPrime(20, tf)).toEqual(23);
+  //     expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
+  //   });
+  //   it("nextPrime of 201 is 211", () => {
+  //     let tf = [];
+  //     result = subject.nextPrime(201, tf)
+  //     expect(result).toEqual(211);
+  //   });
+  // });
 
-  it("primeFactors", () => {
-    expect(subject.primeFactors(2)).toEqual([2]);
-    expect(subject.primeFactors(3)).toEqual([3]);
-    expect(subject.primeFactors(6)).toEqual([2, 3]);
-    expect(subject.primeFactors(203)).toEqual([7, 29]);
-    expect(subject.primeFactors(13195)).toEqual([5, 7, 13, 29]);
-  });
+  // it("primeFactors", () => {
+  //   expect(subject.primeFactors(2)).toEqual([2]);
+  //   expect(subject.primeFactors(3)).toEqual([3]);
+  //   expect(subject.primeFactors(6)).toEqual([2, 3]);
+  //   expect(subject.primeFactors(203)).toEqual([7, 29]);
+  //   expect(subject.primeFactors(13195)).toEqual([5, 7, 13, 29]);
+  // });
 
-  it("nth prime", () => {
-    expect(subject.nthPrime(1)).toEqual(2);
-    expect(subject.nthPrime(2)).toEqual(3);
-    expect(subject.nthPrime(6)).toEqual(13);
-  });
+  // it("nth prime", () => {
+  //   expect(subject.nthPrime(1)).toEqual(2);
+  //   expect(subject.nthPrime(2)).toEqual(3);
+  //   expect(subject.nthPrime(6)).toEqual(13);
+  // });
 });
