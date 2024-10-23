@@ -14,6 +14,7 @@ describe("Arithmetic", () => {
     expect(subject.timesPower10("2", 100000).length).toEqual(100001);
   });
   it("add", () => {
+    expect(subject.add("0", "1")).toEqual("1");
     expect(subject.add("23", "1")).toEqual("24");
     expect(subject.add("2", "99")).toEqual("101");
     expect(subject.add("23", "77")).toEqual("100");
@@ -40,6 +41,7 @@ describe("Arithmetic", () => {
     expect(subject.power("2", "0")).toEqual("1");
     expect(subject.power("2", "3")).toEqual("8");
     expect(subject.power("3", "4")).toEqual("81");
+    expect(subject.power("10", "10")).toEqual("10000000000");
   });
   it("strip", () => {
     expect(subject.strip("00")).toEqual("0");

@@ -95,6 +95,7 @@ var obj = {
 
     return result;
   },
+  
   power: (ns1, ns2) => {
     var result = ns1;
     if (ns2 == 0) return "1";
