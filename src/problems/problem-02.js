@@ -9,7 +9,6 @@ module.exports.run = function (args) {
 
     const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     bar1.start(n, 0);
-    var progress = 0;
 
     f1 = 1
     f2 = 2
