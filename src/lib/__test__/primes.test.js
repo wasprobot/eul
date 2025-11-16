@@ -57,6 +57,11 @@ describe("primes", () => {
       expect(subject.isPrime(8, tf)).toBeFalsy();
     });
 
+    it("32 is not prime", () => {
+      let tf = [];
+      expect(subject.isPrime(32, tf)).toBeFalsy();
+    });
+
     it("13 is prime", () => {
       let tf = [];
       expect(subject.isPrime(13, tf)).toBeTruthy();
@@ -114,6 +119,11 @@ describe("primes", () => {
       ])
     });
 
+    it("3797 is prime", () => {
+      let tf = [];
+      expect(subject.isPrime(3797, tf)).toBeTruthy();
+    });
+
   });
 
   describe("primeFactors", () => {
@@ -137,35 +147,89 @@ describe("primes", () => {
     });
   });
 
-  // describe("nextPrime", () => {
-  //   it("nextPrime of 2 is 3", () => {
-  //     let tf = [];
-  //     expect(subject.nextPrime(2, tf)).toEqual(3);
-  //     expect(tf).toEqual([2]);
-  //   });
-  //   it("nextPrime of 20 is 23", () => {
-  //     let tf = [];
-  //     expect(subject.nextPrime(20, tf)).toEqual(23);
-  //     expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
-  //   });
-  //   it("nextPrime of 201 is 211", () => {
-  //     let tf = [];
-  //     result = subject.nextPrime(201, tf)
-  //     expect(result).toEqual(211);
-  //   });
-  // });
+  describe("nextPrime", () => {
+    it("nextPrime of 2 is 3", () => {
+      let tf = [];
+      expect(subject.nextPrime(2, tf)).toEqual(3);
+      expect(tf).toEqual([2]);
+    });
+    it("nextPrime of 20 is 23", () => {
+      let tf = [];
+      expect(subject.nextPrime(20, tf)).toEqual(23);
+      expect(tf).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
+    });
+    it("nextPrime of 201 is 211", () => {
+      let tf = [];
+      result = subject.nextPrime(201, tf)
+      expect(result).toEqual(211);
+    });
+  });
 
-  // it("primeFactors", () => {
-  //   expect(subject.primeFactors(2)).toEqual([2]);
-  //   expect(subject.primeFactors(3)).toEqual([3]);
-  //   expect(subject.primeFactors(6)).toEqual([2, 3]);
-  //   expect(subject.primeFactors(203)).toEqual([7, 29]);
-  //   expect(subject.primeFactors(13195)).toEqual([5, 7, 13, 29]);
-  // });
+  it("primeFactors", () => {
+    expect(subject.primeFactors(2)).toEqual([2]);
+    expect(subject.primeFactors(3)).toEqual([3]);
+    expect(subject.primeFactors(6)).toEqual([2, 3]);
+    expect(subject.primeFactors(203)).toEqual([7, 29]);
+    expect(subject.primeFactors(13195)).toEqual([5, 7, 13, 29]);
+  });
 
-  // it("nth prime", () => {
-  //   expect(subject.nthPrime(1)).toEqual(2);
-  //   expect(subject.nthPrime(2)).toEqual(3);
-  //   expect(subject.nthPrime(6)).toEqual(13);
-  // });
+  it("nth prime", () => {
+    expect(subject.nthPrime(1)).toEqual(2);
+    expect(subject.nthPrime(2)).toEqual(3);
+    expect(subject.nthPrime(6)).toEqual(13);
+  });
+
+  describe("isRightTruncatablePrime", () => {
+    it("1373 is left truncatable prime", () => {
+      expect(subject.isLeftTruncatablePrime(1373)).toBeTruthy();
+    });
+  });
+
+  describe("isTruncatablePrime", () => {
+    it("2 is not a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(2)).toBeFalsy();
+    });
+
+    it("3 is not a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(3)).toBeFalsy();
+    });
+
+    it("3 is not a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(5)).toBeFalsy();
+    });
+
+    it("7 is not a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(7)).toBeFalsy();
+    });
+
+    it("3797 is a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(3797)).toBeTruthy();
+    });
+
+    it("211 is not a truncatable prime", () => {
+      expect(subject.isTruncatablePrime(211)).toBeFalsy();
+    });
+
+  });
+
+  describe("allPrimesByDigits", () => {
+    it("all 1 digit primes", () => {
+      expect(subject.allPrimesByDigits(1)).toEqual([2, 3, 5, 7]);
+    });
+
+    it("all 2 digit primes", () => {
+      expect(subject.allPrimesByDigits(2)).toEqual([
+        11, 13, 17, 19,
+        23, 29,
+        31, 37,
+        41, 43, 47,
+        53, 59,
+        61, 67,
+        71, 73, 79,
+        83, 89,
+        97
+      ]);
+    });
+
+  })
 });
