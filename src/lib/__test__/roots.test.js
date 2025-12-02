@@ -160,7 +160,7 @@ describe("Roots", () => {
     const expected = "14.5602197785610";
     var i = 0;
     for (const digit of subject.sqrt("212", expected.length - 3)) {
-      console.log({ digit });
+      // console.log({ digit });
       expect(digit).toEqual(expected[i++]);
     }
   });

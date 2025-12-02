@@ -1,7 +1,6 @@
 //Euler Problem 01
 //https://projecteuler.net/problem=1
 
-const A = require("../lib/arithmetic");
 const cliProgress = require('cli-progress');
 
 module.exports.run = function (args) {

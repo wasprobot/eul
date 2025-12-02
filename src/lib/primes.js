@@ -88,36 +88,25 @@ var obj = {
   },
 
   primeFactors: (n) => {
-    let factors = [];
+    let factors = {};
     let i = 2;
     do {
-      //if i divides n and is prime
       if (n % i == 0 && obj.isPrime(i)) {
-        factors.push(i);
-        n = n / i;
+        do {
+          factors[i] = (factors[i] || 0) + 1;
+          n = n / i;
+        } while (n % i == 0);
       }
       i = obj.nextPrime(i);
     } while (i <= n / 2);
 
-    if (obj.isPrime(n)) factors.push(n);
+    if (obj.isPrime(n)) factors[n] = 1;
 
     return factors;
   },
 
   uniquePrimeFactors: (n) => {
-    let factors = {};
-    let i = 2;
-    do {
-      if (n % i == 0 && obj.isPrime(i)) {
-        factors[i] = i;
-        n = n / i;
-      }
-      i = obj.nextPrime(i);
-    } while (i <= n / 2);
-
-    if (obj.isPrime(n)) factors[n] = n;
-
-    return Object.values(factors);
+    return Object.keys(obj.primeFactors(n)).map(k => parseInt(k));
   },
 
   //373 is left-truncatable, bc the following are prime
@@ -175,6 +164,23 @@ var obj = {
 
     return coll;
   },
+
+  allPrimesLessThan: (n) => {
+    if (n == 2)
+      return [];
+
+    next = obj.nextPrime(2)
+    coll = [2]
+
+    while (next < n) {
+      if (obj.isPrime(next)) {
+        coll.push(next);
+      }
+      next = obj.nextPrime(next);
+    }
+
+    return coll;
+  }
 };
 
 module.exports = obj;

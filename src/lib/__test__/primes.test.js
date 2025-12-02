@@ -20,7 +20,7 @@ describe("primes", () => {
           47, 53, 59, 61, 67
         ])).toBeFalsy();
       });
-  })
+  }),
 
   describe("isPrime", () => {
     it("1 is not prime", () => {
@@ -124,28 +124,37 @@ describe("primes", () => {
       expect(subject.isPrime(3797, tf)).toBeTruthy();
     });
 
-  });
+  }),
 
   describe("primeFactors", () => {
-    it("prime factors of 14", () => {
-      expect(subject.primeFactors(14)).toEqual([2, 7]);
+    expect(subject.primeFactors(2)).toEqual({2: 1});
+    expect(subject.primeFactors(3)).toEqual({3: 1});
+    expect(subject.primeFactors(6)).toEqual({2: 1, 3: 1});
+    expect(subject.primeFactors(203)).toEqual({7: 1, 29: 1});
+    expect(subject.primeFactors(13195)).toEqual({5: 1, 7: 1, 13: 1, 29: 1});
+
+    it("of 8", () => {
+      expect(subject.primeFactors(8)).toEqual({2: 3});
     });
-    it("prime factors of 232", () => {
-      expect(subject.primeFactors(232)).toEqual([2, 29]);
+    it("of 14", () => {
+      expect(subject.primeFactors(14)).toEqual({2: 1, 7: 1});
     });
-    it("prime factors of 645", () => {
-      expect(subject.primeFactors(645)).toEqual([3, 5, 43]);
+    it("of 232", () => {
+      expect(subject.primeFactors(232)).toEqual({2: 3, 29: 1});
     });
-  });
+    it("of 645", () => {
+      expect(subject.primeFactors(645)).toEqual({3: 1, 5: 1, 43: 1});
+    });
+  }),
 
   describe("uniquePrimeFactors", () => {
-    it("prime factors of 14", () => {
+    it("of 14", () => {
       expect(subject.uniquePrimeFactors(14)).toEqual([2, 7]);
     });
-    it("prime factors of 244", () => {
-      expect(subject.uniquePrimeFactors(645)).toEqual([3, 5, 43]);
+    it("of 244", () => {
+      expect(subject.uniquePrimeFactors(244)).toEqual([2, 61]);
     });
-  });
+  }),
 
   describe("nextPrime", () => {
     it("nextPrime of 2 is 3", () => {
@@ -163,27 +172,19 @@ describe("primes", () => {
       result = subject.nextPrime(201, tf)
       expect(result).toEqual(211);
     });
-  });
-
-  it("primeFactors", () => {
-    expect(subject.primeFactors(2)).toEqual([2]);
-    expect(subject.primeFactors(3)).toEqual([3]);
-    expect(subject.primeFactors(6)).toEqual([2, 3]);
-    expect(subject.primeFactors(203)).toEqual([7, 29]);
-    expect(subject.primeFactors(13195)).toEqual([5, 7, 13, 29]);
-  });
+  }),
 
   it("nth prime", () => {
     expect(subject.nthPrime(1)).toEqual(2);
     expect(subject.nthPrime(2)).toEqual(3);
     expect(subject.nthPrime(6)).toEqual(13);
-  });
+  }),
 
   describe("isRightTruncatablePrime", () => {
     it("1373 is left truncatable prime", () => {
       expect(subject.isLeftTruncatablePrime(1373)).toBeTruthy();
     });
-  });
+  }),
 
   describe("isTruncatablePrime", () => {
     it("2 is not a truncatable prime", () => {
@@ -210,26 +211,21 @@ describe("primes", () => {
       expect(subject.isTruncatablePrime(211)).toBeFalsy();
     });
 
+  }),
+
+  describe("allPrimesLessThan", () => {
+    it("all primes less than 2", () => {
+      expect(subject.allPrimesLessThan(2)).toEqual([]);
+    });
+
+    it("all primes less than 10", () => {
+      expect(subject.allPrimesLessThan(10)).toEqual([2, 3, 5, 7]);
+    });
+
+    it("all primes less than 20", () => {
+      expect(subject.allPrimesLessThan(20)).toEqual([2, 3, 5, 7, 11, 13, 17, 19]);
   });
 
-  describe("allPrimesByDigits", () => {
-    it("all 1 digit primes", () => {
-      expect(subject.allPrimesByDigits(1)).toEqual([2, 3, 5, 7]);
-    });
-
-    it("all 2 digit primes", () => {
-      expect(subject.allPrimesByDigits(2)).toEqual([
-        11, 13, 17, 19,
-        23, 29,
-        31, 37,
-        41, 43, 47,
-        53, 59,
-        61, 67,
-        71, 73, 79,
-        83, 89,
-        97
-      ]);
-    });
-
   })
+  
 });
