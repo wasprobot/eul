@@ -164,4 +164,13 @@ describe("Roots", () => {
       expect(digit).toEqual(expected[i++]);
     }
   });
+
+  it("144 is a PerfectSquare", () => {
+    expect(subject.isPerfectSquare(144)).toBeTruthy();
+  });
+
+  it("145 is not a PerfectSquare", () => {
+    expect(subject.isPerfectSquare(145)).toBeFalsy();
+  });
+
 });

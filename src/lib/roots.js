@@ -43,6 +43,13 @@ var obj = {
 
       }
     }
+  },
+  isPerfectSquare(n) {
+    if (n < 0) {
+      return false; // Perfect squares cannot be negative numbers
+    }
+    const sqrtResult = Math.sqrt(n);
+    return Number.isInteger(sqrtResult);
   }
 };
 
