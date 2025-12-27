@@ -95,7 +95,7 @@ var obj = {
 
     return result;
   },
-  
+
   power: (ns1, ns2) => {
     var result = ns1;
     if (ns2 == 0) return "1";
@@ -194,6 +194,14 @@ var obj = {
     }
 
     return obj.strip(result);
+  },
+
+  digitsProduct: (ns) => {
+    let product = 1;
+    for (let i = 0; i < ns.length; i++) {
+      product *= parseInt(ns.substring(i,i+1));
+    }
+    return product.toString();
   }
 
 };

@@ -47,7 +47,7 @@ describe("Arithmetic", () => {
     expect(subject.strip("00")).toEqual("0");
     expect(subject.strip("23")).toEqual("23");
     expect(subject.strip("0023")).toEqual("23");
-  })
+  });
   it("compare", () => {
     expect(subject.compare("123", "99")).toEqual(1);
     expect(subject.compare("99", "100")).toEqual(-1);
@@ -55,7 +55,7 @@ describe("Arithmetic", () => {
     expect(subject.compare("99", "39")).toEqual(1);
     expect(subject.compare("29", "99")).toEqual(-1);
     expect(subject.compare("23", "20")).toEqual(1);
-  })
+  });
   it("subtract", () => {
     expect(subject.subtract("23", "20")).toEqual("3");
     expect(subject.subtract("9", "50")).toEqual("-41");
@@ -64,5 +64,10 @@ describe("Arithmetic", () => {
     expect(subject.subtract("2003", "99")).toEqual("1904");
     expect(subject.subtract("154617233140502689077100", "138564064605510183482106")).toEqual("16053168534992505594994");
     expect(subject.subtract("987438763636009884747000993826144", "138564064605510000183482106")).toEqual("987438625071945279237000810344038");
+  });
+  it("digitsProduct", () => {
+    expect(subject.digitsProduct("23")).toEqual("6");
+    expect(subject.digitsProduct("203")).toEqual("0");
   })
+
 });
